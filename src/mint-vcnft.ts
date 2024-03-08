@@ -30,7 +30,7 @@ async function main() {
 
   // mint NFT with VC
   const nftContract = new NftContract(process.env.PROVIDER_URL!, process.env.PRIVATE_KEY!, '0xd7E08464E8a8451732F0A8212C033f89bB190a5D')
-  nftContract.safeMint('0x88a3473dA09Cc38Ee29aDD599DAbb8E590bA6fF1', 4, metadataUrl);
+  nftContract.safeMint('0x88a3473dA09Cc38Ee29aDD599DAbb8E590bA6fF1', 5, metadataUrl);
 }
 
 main().catch(console.log)
