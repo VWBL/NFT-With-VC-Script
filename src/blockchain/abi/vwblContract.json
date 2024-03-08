@@ -1,0 +1,3 @@
+{
+    "abi": [ { "inputs": [ { "internalType": "address", "name": "_minter", "type": "address" }, { "internalType": "bytes32", "name": "_documentId", "type": "bytes32" }, {"internalType":"uint256","name": "tokenId","type": "uint256"},{ "internalType": "address", "name": "_applyer", "type": "address" }, {"internalType": "string","name": "uri","type": "string"}], "name": "mintVWBL", "outputs": [ { "internalType": "uint256", "name": "", "type": "uint256" } ], "stateMutability": "payable", "type": "function" }]
+}

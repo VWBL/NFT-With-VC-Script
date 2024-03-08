@@ -14,14 +14,16 @@ const INFURA_PROJECT_ID = '${YOUR_INFURA_ID}'
     yarn
 
     // registrater issuer did
-    yarn ts-node --esm ./src/create-identifier.ts
+    yarn node --loader ts-node/esm ./src/create-identifier.ts
     // resolve did document
-    yarn ts-node --esm ./src/resolve-did.ts
+    yarn node --loader ts-node/esm ./src/resolve-did.ts
     // list did
-    yarn ts-node --esm ./src/list-identifiers.ts
+    yarn node --loader ts-node/esm ./src/list-identifiers.ts
     // mint nft with vc
-    yarn ts-node --esm ./src/mint-vcnft.ts
+    yarn node --loader ts-node/esm ./src/mint-vcnft.ts
+    // mint vwbl with vc
+    yarn node --loader ts-node/esm ./src/mint-vcvwbl.ts 
     // verify nft with vc
-    yarn ts-node --esm ./src/verify-vcnft.ts
+    yarn node --loader ts-node/esm ./src/verify-vcnft.ts
     // sign message by issuer private key
-    yarn ts-node --esm ./src/sign-message.ts
+    yarn node --loader ts-node/esm ./src/sign-message.ts

@@ -5,12 +5,13 @@ import { NftContract } from './blockchain/nftContract.js';
 dotenv.config();
 
 async function main() {
+  const nftAddress = process.env.CONTRACT_ADDRESS!;
   // Create verifiable credential
   const verifiableCredential = await agent.createVerifiableCredential({
      credential: {
       issuer: { id:  'did:ethr:goerli:0x0216f17afc876c83d0d69d8fb3f8ea86da823da1b32043538226fe8f4dda05117b'},
       credentialSubject: {
-        contractAddress: '0xd7E08464E8a8451732F0A8212C033f89bB190a5D',
+        contractAddress: nftAddress,
         tokenId: '5',
         issuerName: 'vwbl team'
       },
@@ -25,12 +26,13 @@ async function main() {
   console.log(vcUrl);
   
   // upload metadata to IPFS
-  const metadataUrl = await uploadToIPFS.uploadMetadata('test name', 'test description', 'https://test.com/', vcUrl);
+  const metadataUrl = await uploadToIPFS.uploadNFTMetadata('test name', 'test description', 'https://test.com/', vcUrl);
   console.log(metadataUrl);
 
   // mint NFT with VC
-  const nftContract = new NftContract(process.env.PROVIDER_URL!, process.env.PRIVATE_KEY!, '0xd7E08464E8a8451732F0A8212C033f89bB190a5D')
-  nftContract.safeMint('0x88a3473dA09Cc38Ee29aDD599DAbb8E590bA6fF1', 5, metadataUrl);
+  const nftContract = new NftContract(process.env.PROVIDER_URL!, process.env.PRIVATE_KEY!, nftAddress, false);
+  const toAddress = '0x88a3473dA09Cc38Ee29aDD599DAbb8E590bA6fF1';
+  nftContract.mintNFT(toAddress, 5, metadataUrl);
 }
 
 main().catch(console.log)
